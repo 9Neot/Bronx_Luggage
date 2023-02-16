@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
+      integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"
+      integrity="sha512-y1qD3hz/IAf8W4+/UMLZ+CN6LIoUGi7srWJ3r1R17Hid8x0yXe+1B5ZelkaL1Mjzedzu0Cg3HBvDG02SAgSzBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script src="indexController.js"></script>
+    <title>Bronx Luggage</title>
+  </head>
+
+  <body class="container-fluid" ng-app="myApp" ng-controller="myCtrl">
+    <header>
+      <a href="#!/"
+        ><img id="logo" src="./img/logo.png" alt="" ng-click="disappear()"
+      /></a>
+      <div class="link">
+        <button class="button_close1 mybtn" ng-click="disappear()">
+          <i class="fas fa-xmark"></i>
+        </button>
+        <a href="#!/" ng-click="disappear()">Home</a>
+        <div id="dropdown" ng-click="enterSite('#!/men')">
+          <a href="#!/men" ng-click="disappear() ">Men</a>
+          <div id="dropdown-content">
+            <a
+              href="#!/luggage"
+              ng-click="fun('men', 'women', 'kid')"
+              id="menLuggage"
+              >Luggage</a
+            ><a
+              href="#!/backpacks"
+              ng-click="fun('men', 'women', 'kid')"
+              id="menBackpacks"
+              >BackPacks</a
+            ><a
+              href="#!/bags"
+              ng-click="fun('men', 'women', 'kid')"
+              id="menBags"
+              >Bags</a
+            ><a
+              href="#!/briefcases"
+              ng-click="fun('men', 'women', 'kid')"
+              id="menBriefcases"
+              >Briefcases</a
+            ><a
+              href="#!/accessories"
+              ng-click="fun('men', 'women', 'kid')"
+              id="menAccessories"
+              >Accessories</a
+            >
+          </div>
+        </div>
+        <div id="dropdown" ng-click="enterSite('#!/women')">
+          <a href="#!/women" ng-click="disappear()">Women</a>
+          <div id="dropdown-content">
+            <a
+              href="#!/luggage"
+              ng-click="fun('women', 'men', 'kid')"
+              id="womenLuggage"
+              >Luggage</a
+            ><a
+              href="#!/backpacks"
+              ng-click="fun('women', 'men', 'kid')"
+              id="womenBackpacks"
+              >BackPacks</a
+            ><a
+              href="#!/bags"
+              ng-click="fun('women', 'men', 'kid')"
+              id="womenBags"
+              >Bags</a
+            ><a
+              href="#!/briefcases"
+              ng-click="fun('women', 'men', 'kid')"
+              id="womenBriefcases"
+              >Briefcases</a
+            ><a
+              href="#!/accessories"
+              ng-click="fun('women', 'men', 'kid')"
+              id="womenAccessories"
+              >Accessories</a
+            >
+          </div>
+        </div>
+        <div id="dropdown" ng-click="enterSite('#!/kids')">
+          <a href="#!/kids" ng-click="disappear()">Kids</a>
+          <div id="dropdown-content">
+            <a
+              href="#!/luggage"
+              ng-click="fun('kid', 'women', 'men')"
+              id="kidLuggage"
+              >Luggage</a
+            ><a
+              href="#!/backpacks"
+              ng-click="fun('kid', 'women', 'men')"
+              id="kidBackpacks"
+              >BackPacks</a
+            ><a
+              href="#!/bags"
+              ng-click="fun('kid', 'women', 'men')"
+              id="kidBags"
+              >Bags</a
+            >
+          </div>
+        </div>
+        <a href="#!/about_us">About Us</a>
+        <a href="#!/contact_us">Contact Us</a>
+      </div>
+      <div id="hamburger" class="mybtn" ng-click="display()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </header>
+    <section>
+      <div id="container" ng-view></div>
+    </section>
+    <footer></footer>
+    <div id="count">Visiter Count: {{count}}</div>
+    <button
+      type="button"
+      class="btn btn-danger btn-floating btn-lg"
+      id="btn-back-to-top"
+      ng-click="backToTop()"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </body>
+</html>

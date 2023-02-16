@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #card-img {
+        width: 60%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <aside>
+      <button class="button_close mybtn" ng-click="disappearAside()">
+        <i class="fas fa-xmark"></i>
+      </button>
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+            <label for="kid" class="accordion-button kid"
+              ><span>Kid</span>
+              <input
+                type="checkbox"
+                name="kid"
+                id="kid"
+                ng-model="filter.bags.kid"
+                ng-click="changeGenderState('bags')"
+                ng-click="changePage(0)"
+            /></label>
+          </h2>
+        </div>
+        <div
+          class="accordion-item"
+          ng-style="{'display': filter.bags.kid ? 'none' : 'block'}"
+        >
+          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseOne"
+              aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseOne"
+            >
+              Gender
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingOne"
+          >
+            <div class="accordion-body" id="gender">
+              <label for="men"
+                ><input
+                  type="checkbox"
+                  name="men"
+                  id="men"
+                  ng-click="changeState('gender','men','bags')"
+                />Men</label
+              >
+              <label for="women"
+                ><input
+                  type="checkbox"
+                  name="women"
+                  id="women"
+                  ng-click="changeState('gender','women','bags')"
+                />Women</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseTwo"
+              aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseTwo"
+            >
+              Price
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseTwo"
+            class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingTwo"
+          >
+            <div class="accordion-body">
+              <label for="lowest"
+                ><input
+                  type="checkbox"
+                  name="lowest"
+                  id="lowest"
+                  ng-click="changeState('price',0,'bags')"
+                />Under 10$</label
+              >
+              <label for="low"
+                ><input
+                  type="checkbox"
+                  name="low"
+                  id="low"
+                  ng-click="changeState('price',10,'bags')"
+                />10$-20$</label
+              >
+              <label for="high"
+                ><input
+                  type="checkbox"
+                  name="high"
+                  id="high"
+                  ng-click="changeState('price',20,'bags')"
+                />20$-30$</label
+              >
+              <label for="highest"
+                ><input
+                  type="checkbox"
+                  name="highest"
+                  id="highest"
+                  ng-click="changeState('price',30,'bags')"
+                />Over 30$</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseThree"
+              aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseThree"
+            >
+              Size
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseThree"
+            class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingThree"
+          >
+            <div class="accordion-body">
+              <label for="small"
+                ><input
+                  type="checkbox"
+                  name="small"
+                  id="small"
+                  ng-click="changeState('size','small','bags')"
+                />Small</label
+              >
+              <label for="medium"
+                ><input
+                  type="checkbox"
+                  name="medium"
+                  id="medium"
+                  ng-click="changeState('size','medium','bags')"
+                />Medium</label
+              >
+              <label for="large"
+                ><input
+                  type="checkbox"
+                  name="large"
+                  id="large"
+                  ng-click="changeState('size','large','bags')"
+                />Large</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseFour"
+              aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseFour"
+            >
+              Colour
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseFour"
+            class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingFour"
+          >
+            <div class="accordion-body">
+              <label for="{{i}}" ng-repeat="i in colors.bags"
+                ><input
+                  type="checkbox"
+                  name="{{i}}"
+                  id="{{i}}"
+                  ng-click="changeState('color',i,'bags')"
+                />{{i.charAt(0).toUpperCase() + i.slice(1)}}</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseFive"
+              aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseFive"
+            >
+              Brand
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseFive"
+            class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingFive"
+          >
+            <div class="accordion-body">
+              <label for="{{i}}" ng-repeat="i in brands.bags"
+                ><input
+                  type="checkbox"
+                  name="{{i}}"
+                  id="{{i}}"
+                  ng-click="changeState('brand',i.name,'bags')"
+                />{{i.name}}</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div id="content">
+      <div id="function">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Enter product name"
+          ng-model="search"
+        />
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Sort By: Default
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" ng-click="sort('', false)">Default</a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                ng-click="sort('price.current_price', true)"
+                >Price: High-Low</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                ng-click="sort('price.current_price', false)"
+                >Price: Low-High</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" ng-click="sort('reviews.rating', true)"
+                >Rating: High-Low</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" ng-click="sort('reviews.rating', false)"
+                >Rating: Low-High</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div id="filter" class="mybtn" ng-click="displayAside()">
+          <i class="fa-solid fa-filter"></i>
+        </div>
+      </div>
+      <div
+        ng-repeat="i in bags | myFilter:this | orderBy:prop:reverse as result"
+      ></div>
+      <div class="product">
+        <div
+          ng-repeat="i in bags | myFilter:this | orderBy:prop:reverse | startFrom:currentPage*pageSize | limitTo:pageSize"
+          id="card"
+          ng-click="popup('bags', i.id)"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          <div id="thumbnail">
+            <img id="card-img" ng-src="{{i.thumbnail}}" alt="" />
+          </div>
+          <div id="card-body">
+            <div id="name">{{i.name}}</div>
+            <div class="star-row">
+              <div class="star-ratings">
+                <div
+                  class="fill-ratings"
+                  ng-style="{'width': i.reviews.rating*20 + '%'}"
+                >
+                  <span>★★★★★</span>
+                </div>
+                <div class="empty-ratings">
+                  <span>★★★★★</span>
+                </div>
+              </div>
+              <span>{{i.reviews.total_reviews}} reviews</span>
+            </div>
+            <div id="price">
+              <span id="current-price">
+                {{i.price.current_price | currency}}
+              </span>
+              <span id="before-price"
+                >{{i.price.before_price ? i.price.before_price : null |
+                currency}}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="pagination" ng-if="calcNumberOfPages()>1">
+        {{changePage(currentPage)}}
+        <li class="page-item">
+          <button
+            class="page-link"
+            ng-disabled="currentPage === 0"
+            ng-click="changePage(currentPage-1)"
+          >
+            Previous
+          </button>
+        </li>
+        <li
+          class="page-item"
+          ng-repeat="x in [].constructor(calcNumberOfPages()) track by $index"
+        >
+          <button class="page-link" ng-click="changePage($index)">
+            {{$index + 1}}
+          </button>
+        </li>
+        <li class="page-item">
+          <button
+            class="page-link"
+            ng-disabled="currentPage >= calcNumberOfPages() - 1"
+            ng-click="changePage(currentPage+1)"
+          >
+            Next
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Product information
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              ng-click="closePopup()"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="popup_content">
+              <div id="popup_img">
+                <img id="popup_thumbnail" ng-src="{{model.thumbnail}}" alt="" />
+                <div id="galery">
+                  <img
+                    ng-src="{{model.imgs[0]}}"
+                    alt=""
+                    ng-mouseover="changeImg(model.imgs[0])"
+                    ng-mouseout="reChangeImg(model.thumbnail)"
+                  /><img
+                    ng-src="{{model.imgs[1]}}"
+                    alt=""
+                    ng-mouseover="changeImg(model.imgs[1])"
+                    ng-mouseout="reChangeImg(model.thumbnail)"
+                  />
+                </div>
+              </div>
+              <div id="popup_info">
+                <h2 id="popup_name">{{model.name}}</h2>
+                <div class="popup_star-row">
+                  <div class="star-ratings">
+                    <div
+                      class="fill-ratings"
+                      ng-style="{'width': model.reviews.rating*20 + '%'}"
+                    >
+                      ★★★★★
+                    </div>
+                    <div class="empty-ratings">★★★★★</div>
+                  </div>
+                  <span>{{model.reviews.total_reviews}} reviews</span>
+                </div>
+
+                <div id="popup_price">
+                  <span id="current-price">
+                    {{model.price.current_price | currency}}
+                  </span>
+                  <div>
+                    <span id="before-price"
+                      >{{model.price.before_price ? model.price.before_price :
+                      null | currency}}</span
+                    >
+                    <span
+                      >{{model.price.savings_percent ? "(-" +
+                      model.price.savings_percent + "%)" : null}}</span
+                    >
+                  </div>
+                </div>
+                <div id="properties">
+                  <div>
+                    <span class="title">Color</span>
+                    <div>{{model.color}}</div>
+                  </div>
+                  <div>
+                    <span class="title">Brand</span>
+                    <div>{{model.brand.name}}</div>
+                  </div>
+                  <div>
+                    <span class="title">Size</span>
+                    <div>{{model.size}}</div>
+                  </div>
+                </div>
+                <div id="more">
+                  <span class="title">About this item</span>
+                  <div>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Natus quasi labore saepe laboriosam omnis. Molestias saepe
+                    ducimus quam voluptate eaque perferendis culpa, sapiente
+                    numquam? Amet rem veritatis vero doloribus aperiam adipisci
+                    ducimus enim placeat maxime quod at voluptate eaque cum
+                    laudantium fugit ipsam, libero, accusantium numquam. Aperiam
+                    nihil repudiandae consequuntur!
+                  </div>
+                </div>
+                <div id="show_feedback">
+                  <span class="title">Review and Feedback</span>
+                  <div ng-repeat="j in model.feedback" id="feedbackBox">
+                    <div id="show_name">{{j.name}}</div>
+                    <div class="popup_star-row">
+                      <div class="star-ratings">
+                        <div
+                          class="fill-ratings"
+                          ng-style="{'width': j.rating*20 + '%'}"
+                        >
+                          ★★★★★
+                        </div>
+                        <div class="empty-ratings">★★★★★</div>
+                      </div>
+                    </div>
+                    <div id="text">{{j.text}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <h5 class="title">Rate and Send Feedback</h5>
+            <form novalidate>
+              <div id="first">
+                <div id="second">
+                  <input
+                    type="text"
+                    id="nameInput"
+                    placeholder="Enter your name (mandatory)"
+                    ng-change="inputChange()"
+                    ng-model="nameInput"
+                    required
+                  />
+                  <span class="error" aria-live="polite"></span>
+                </div>
+                <div class="star-wrapper">
+                  <i class="fas fa-star s1" ng-click="rate(5, $event)"></i>
+                  <i class="fas fa-star s2" ng-click="rate(4, $event)"></i>
+                  <i class="fas fa-star s3" ng-click="rate(3, $event)"></i>
+                  <i class="fas fa-star s4" ng-click="rate(2, $event)"></i>
+                  <i class="fas fa-star s5" ng-click="rate(1, $event)"></i>
+                </div>
+              </div>
+              <textarea
+                name="feedback"
+                id="feedback"
+                placeholder="Enter feedback (optinal)"
+              ></textarea>
+              <button
+                class="btn btn-primary"
+                id="submit"
+                ng-click="sendFeedback()"
+              >
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+
+  <body>
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="4"
+          aria-label="Slide 5"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="5"
+          aria-label="Slide 6"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div><img src="img\slide\slide1.jpg" class="" alt="..." /></div>
+        </div>
+        <div class="carousel-item">
+          <div><img src="img\slide\slide2.jpg" class="" alt="..." /></div>
+        </div>
+        <div class="carousel-item">
+          <div><img src="img\slide\slide3.jpg" class="" alt="..." /></div>
+        </div>
+        <div class="carousel-item">
+          <div><img src="img\slide\slide4.jpg" class="" alt="..." /></div>
+        </div>
+        <div class="carousel-item">
+          <div><img src="img\slide\slide5.jpg" class="" alt="..." /></div>
+        </div>
+        <div class="carousel-item">
+          <div><img src="img\slide\slide6.jpg" class="" alt="..." /></div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="row">
+      <h1>Brand</h1>
+
+      <div class="ticker">
+        <div ng-repeat="(key, value) in brands" class="ticker_list">
+          <div ng-repeat="i in value | myFormat" class="ticker_item">
+            <img ng-src="{{i.logo}}" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h1>Best Seller</h1>
+      <div id="home-content">
+        <div
+          ng-repeat="i in bestSeller"
+          id="home-card"
+          ng-click="popup('bestSeller', i.id)"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          <img id="home-card-img" ng-src="{{i.thumbnail}}" alt="" />
+          <div id="home-card-body">
+            <div id="name">{{i.name}}</div>
+            <div class="star-row">
+              <div class="star-ratings">
+                <div
+                  class="fill-ratings"
+                  ng-style="{'width': i.reviews.rating*20 + '%'}"
+                >
+                  <span>★★★★★</span>
+                </div>
+                <div class="empty-ratings">
+                  <span>★★★★★</span>
+                </div>
+              </div>
+              <span>{{i.reviews.total_reviews}} reviews</span>
+            </div>
+            <div id="price">
+              <span id="current-price">
+                {{i.price.current_price | currency}}
+              </span>
+              <span id="before-price"
+                >{{i.price.before_price ? i.price.before_price : null |
+                currency}}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h1>Sale Promotion</h1>
+      <div id="home-content">
+        <div
+          ng-repeat="i in sale"
+          id="home-card"
+          ng-click="popup('sale', i.id)"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          <img id="home-card-img" ng-src="{{i.thumbnail}}" alt="" />
+          <div id="home-card-body">
+            <div id="name">{{i.name}}</div>
+            <div class="star-row">
+              <div class="star-ratings">
+                <div
+                  class="fill-ratings"
+                  ng-style="{'width': i.reviews.rating*20 + '%'}"
+                >
+                  <span>★★★★★</span>
+                </div>
+                <div class="empty-ratings">
+                  <span>★★★★★</span>
+                </div>
+              </div>
+              <span>{{i.reviews.total_reviews}} reviews</span>
+            </div>
+            <div id="price">
+              <span id="current-price">
+                {{i.price.current_price | currency}}
+              </span>
+              <span id="before-price"
+                >{{i.price.before_price ? i.price.before_price : null |
+                currency}}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Product information
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              ng-click="closePopup()"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="popup_content">
+              <div id="popup_img">
+                <img id="popup_thumbnail" ng-src="{{model.thumbnail}}" alt="" />
+                <div id="galery">
+                  <img
+                    ng-src="{{model.imgs[0]}}"
+                    alt=""
+                    ng-mouseover="changeImg(model.imgs[0])"
+                    ng-mouseout="reChangeImg(model.thumbnail)"
+                  /><img
+                    ng-src="{{model.imgs[1]}}"
+                    alt=""
+                    ng-mouseover="changeImg(model.imgs[1])"
+                    ng-mouseout="reChangeImg(model.thumbnail)"
+                  />
+                </div>
+              </div>
+              <div id="popup_info">
+                <h2 id="popup_name">{{model.name}}</h2>
+                <div class="popup_star-row">
+                  <div class="star-ratings">
+                    <div
+                      class="fill-ratings"
+                      ng-style="{'width': model.reviews.rating*20 + '%'}"
+                    >
+                      ★★★★★
+                    </div>
+                    <div class="empty-ratings">★★★★★</div>
+                  </div>
+                  <span>{{model.reviews.total_reviews}} reviews</span>
+                </div>
+
+                <div id="popup_price">
+                  <span id="current-price">
+                    {{model.price.current_price | currency}}
+                  </span>
+                  <div>
+                    <span id="before-price"
+                      >{{model.price.before_price ? model.price.before_price :
+                      null | currency}}</span
+                    >
+                    <span
+                      >{{model.price.savings_percent ? "(-" +
+                      model.price.savings_percent + "%)" : null}}</span
+                    >
+                  </div>
+                </div>
+                <div id="properties">
+                  <div>
+                    <span class="title">Color</span>
+                    <div>{{model.color}}</div>
+                  </div>
+                  <div>
+                    <span class="title">Brand</span>
+                    <div>{{model.brand.name}}</div>
+                  </div>
+                  <div>
+                    <span class="title">Size</span>
+                    <div>{{model.size}}</div>
+                  </div>
+                </div>
+                <div id="more">
+                  <span class="title">About this item</span>
+                  <div>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Natus quasi labore saepe laboriosam omnis. Molestias saepe
+                    ducimus quam voluptate eaque perferendis culpa, sapiente
+                    numquam? Amet rem veritatis vero doloribus aperiam adipisci
+                    ducimus enim placeat maxime quod at voluptate eaque cum
+                    laudantium fugit ipsam, libero, accusantium numquam. Aperiam
+                    nihil repudiandae consequuntur!
+                  </div>
+                </div>
+                <div id="show_feedback">
+                  <span class="title">Review and Feedback</span>
+                  <div ng-repeat="j in model.feedback" id="feedbackBox">
+                    <div id="show_name">{{j.name}}</div>
+                    <div class="popup_star-row">
+                      <div class="star-ratings">
+                        <div
+                          class="fill-ratings"
+                          ng-style="{'width': j.rating*20 + '%'}"
+                        >
+                          ★★★★★
+                        </div>
+                        <div class="empty-ratings">★★★★★</div>
+                      </div>
+                    </div>
+                    <div id="text">{{j.text}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <h5 class="title">Rate and Send Feedback</h5>
+            <input
+              type="text"
+              id="nameInput"
+              placeholder="Enter your name (mandatory)"
+            />
+            <div class="star-wrapper">
+              <i class="fas fa-star s1" ng-click="rate(5, $event)"></i>
+              <i class="fas fa-star s2" ng-click="rate(4, $event)"></i>
+              <i class="fas fa-star s3" ng-click="rate(3, $event)"></i>
+              <i class="fas fa-star s4" ng-click="rate(2, $event)"></i>
+              <i class="fas fa-star s5" ng-click="rate(1, $event)"></i>
+            </div>
+            <textarea
+              name="feedback"
+              id="feedback"
+              placeholder="Enter feedback (optinal)"
+            ></textarea>
+            <button class="btn btn-primary" ng-click="sendFeedback()">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
