@@ -13,6 +13,7 @@ body {
 }
 
 header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -114,6 +115,7 @@ a {
 
 .ticker {
   display: flex;
+  overflow-x: hidden;
 }
 
 .ticker_list {
