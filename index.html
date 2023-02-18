@@ -45,118 +45,120 @@
     <title>Bronx Luggage</title>
   </head>
 
-  <body class="container-fluid" ng-app="myApp" ng-controller="myCtrl">
-    <header>
-      <a href="#!/"
-        ><img id="logo" src="./img/logo.png" alt="" ng-click="disappear()"
-      /></a>
-      <div class="link">
-        <button class="button_close1 mybtn" ng-click="disappear()">
-          <i class="fas fa-xmark"></i>
-        </button>
-        <a href="#!/" ng-click="disappear()">Home</a>
-        <div id="dropdown" ng-click="enterSite('#!/men')">
-          <a href="#!/men" ng-click="disappear() ">Men</a>
-          <div id="dropdown-content">
-            <a
-              href="#!/luggage"
-              ng-click="fun('men', 'women', 'kid')"
-              id="menLuggage"
-              >Luggage</a
-            ><a
-              href="#!/backpacks"
-              ng-click="fun('men', 'women', 'kid')"
-              id="menBackpacks"
-              >BackPacks</a
-            ><a
-              href="#!/bags"
-              ng-click="fun('men', 'women', 'kid')"
-              id="menBags"
-              >Bags</a
-            ><a
-              href="#!/briefcases"
-              ng-click="fun('men', 'women', 'kid')"
-              id="menBriefcases"
-              >Briefcases</a
-            ><a
-              href="#!/accessories"
-              ng-click="fun('men', 'women', 'kid')"
-              id="menAccessories"
-              >Accessories</a
-            >
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <div class="wrapper container-fluid">
+      <header>
+        <a href="#!/"
+          ><img id="logo" src="./img/logo.png" alt="" ng-click="disappear()"
+        /></a>
+        <div class="link">
+          <button class="button_close1 mybtn" ng-click="disappear()">
+            <i class="fas fa-xmark"></i>
+          </button>
+          <a href="#!/" ng-click="disappear()">Home</a>
+          <div id="dropdown" ng-click="enterSite('#!/men')">
+            <a href="#!/men" ng-click="disappear() ">Men</a>
+            <div id="dropdown-content">
+              <a
+                href="#!/luggage"
+                ng-click="fun('men', 'women', 'kid')"
+                id="menLuggage"
+                >Luggage</a
+              ><a
+                href="#!/backpacks"
+                ng-click="fun('men', 'women', 'kid')"
+                id="menBackpacks"
+                >BackPacks</a
+              ><a
+                href="#!/bags"
+                ng-click="fun('men', 'women', 'kid')"
+                id="menBags"
+                >Bags</a
+              ><a
+                href="#!/briefcases"
+                ng-click="fun('men', 'women', 'kid')"
+                id="menBriefcases"
+                >Briefcases</a
+              ><a
+                href="#!/accessories"
+                ng-click="fun('men', 'women', 'kid')"
+                id="menAccessories"
+                >Accessories</a
+              >
+            </div>
           </div>
-        </div>
-        <div id="dropdown" ng-click="enterSite('#!/women')">
-          <a href="#!/women" ng-click="disappear()">Women</a>
-          <div id="dropdown-content">
-            <a
-              href="#!/luggage"
-              ng-click="fun('women', 'men', 'kid')"
-              id="womenLuggage"
-              >Luggage</a
-            ><a
-              href="#!/backpacks"
-              ng-click="fun('women', 'men', 'kid')"
-              id="womenBackpacks"
-              >BackPacks</a
-            ><a
-              href="#!/bags"
-              ng-click="fun('women', 'men', 'kid')"
-              id="womenBags"
-              >Bags</a
-            ><a
-              href="#!/briefcases"
-              ng-click="fun('women', 'men', 'kid')"
-              id="womenBriefcases"
-              >Briefcases</a
-            ><a
-              href="#!/accessories"
-              ng-click="fun('women', 'men', 'kid')"
-              id="womenAccessories"
-              >Accessories</a
-            >
+          <div id="dropdown" ng-click="enterSite('#!/women')">
+            <a href="#!/women" ng-click="disappear()">Women</a>
+            <div id="dropdown-content">
+              <a
+                href="#!/luggage"
+                ng-click="fun('women', 'men', 'kid')"
+                id="womenLuggage"
+                >Luggage</a
+              ><a
+                href="#!/backpacks"
+                ng-click="fun('women', 'men', 'kid')"
+                id="womenBackpacks"
+                >BackPacks</a
+              ><a
+                href="#!/bags"
+                ng-click="fun('women', 'men', 'kid')"
+                id="womenBags"
+                >Bags</a
+              ><a
+                href="#!/briefcases"
+                ng-click="fun('women', 'men', 'kid')"
+                id="womenBriefcases"
+                >Briefcases</a
+              ><a
+                href="#!/accessories"
+                ng-click="fun('women', 'men', 'kid')"
+                id="womenAccessories"
+                >Accessories</a
+              >
+            </div>
           </div>
-        </div>
-        <div id="dropdown" ng-click="enterSite('#!/kids')">
-          <a href="#!/kids" ng-click="disappear()">Kids</a>
-          <div id="dropdown-content">
-            <a
-              href="#!/luggage"
-              ng-click="fun('kid', 'women', 'men')"
-              id="kidLuggage"
-              >Luggage</a
-            ><a
-              href="#!/backpacks"
-              ng-click="fun('kid', 'women', 'men')"
-              id="kidBackpacks"
-              >BackPacks</a
-            ><a
-              href="#!/bags"
-              ng-click="fun('kid', 'women', 'men')"
-              id="kidBags"
-              >Bags</a
-            >
+          <div id="dropdown" ng-click="enterSite('#!/kids')">
+            <a href="#!/kids" ng-click="disappear()">Kids</a>
+            <div id="dropdown-content">
+              <a
+                href="#!/luggage"
+                ng-click="fun('kid', 'women', 'men')"
+                id="kidLuggage"
+                >Luggage</a
+              ><a
+                href="#!/backpacks"
+                ng-click="fun('kid', 'women', 'men')"
+                id="kidBackpacks"
+                >BackPacks</a
+              ><a
+                href="#!/bags"
+                ng-click="fun('kid', 'women', 'men')"
+                id="kidBags"
+                >Bags</a
+              >
+            </div>
           </div>
+          <a href="#!/about_us">About Us</a>
+          <a href="#!/contact_us">Contact Us</a>
         </div>
-        <a href="#!/about_us">About Us</a>
-        <a href="#!/contact_us">Contact Us</a>
-      </div>
-      <div id="hamburger" class="mybtn" ng-click="display()">
-        <i class="fa-solid fa-bars"></i>
-      </div>
-    </header>
-    <section>
-      <div id="container" ng-view></div>
-    </section>
-    <footer></footer>
-    <div id="count">Visiter Count: {{count}}</div>
-    <button
-      type="button"
-      class="btn btn-danger btn-floating btn-lg"
-      id="btn-back-to-top"
-      ng-click="backToTop()"
-    >
-      <i class="fas fa-arrow-up"></i>
-    </button>
+        <div id="hamburger" class="mybtn" ng-click="display()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </header>
+      <section>
+        <div id="container" ng-view></div>
+      </section>
+      <footer></footer>
+      <div id="count">Visiter Count: {{count}}</div>
+      <button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        ng-click="backToTop()"
+      >
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </div>
   </body>
 </html>

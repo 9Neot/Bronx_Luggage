@@ -376,24 +376,30 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
 
   function disappearAside() {
     const aside = document.querySelector("aside");
-    const product = document.querySelector(".product");
+    const content = document.querySelector(".content");
     const pagination = document.querySelector(".pagination");
-    product.classList.remove("hidden");
+    const container = document.querySelector("#container");
+
+    content.classList.remove("hidden");
     if (pagination) {
       pagination.classList.remove("hidden");
     }
     aside.classList.remove("aside_active");
+    container.style.height = "";
   }
 
   function displayAside() {
     const aside = document.querySelector("aside");
-    const product = document.querySelector(".product");
+    const content = document.querySelector(".content");
     const pagination = document.querySelector(".pagination");
-    product.classList.add("hidden");
+    const container = document.querySelector("#container");
+
+    content.classList.add("hidden");
     if (pagination) {
       pagination.classList.add("hidden");
     }
     aside.classList.add("aside_active");
+    container.style.height = `${aside.offsetHeight}px`;
   }
 
   function calcNumberOfPages() {
