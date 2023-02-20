@@ -1,4 +1,4 @@
-#container {
+/* #container {
   position: relative;
 }
 
@@ -356,9 +356,6 @@ textarea {
   margin-bottom: 1rem;
 }
 
-/* #current {
-  color: #0d6efd;
-} */
 @media only screen and (max-width: 1200px) {
   aside {
     position: absolute;
@@ -460,4 +457,4 @@ textarea {
 
 .hidden {
   display: none;
-}
+} */

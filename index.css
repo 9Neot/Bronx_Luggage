@@ -71,6 +71,8 @@ header {
   display: none;
   z-index: 1;
   font-size: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 #dropdown-content > a {
@@ -306,6 +308,10 @@ aside::-webkit-scrollbar-thumb {
   height: 2rem;
 }
 
+#search::placeholder {
+  padding-left: 0.5rem;
+}
+
 .product {
   width: 100%;
   display: flex;
@@ -321,11 +327,15 @@ aside::-webkit-scrollbar-thumb {
   flex-direction: column;
   margin-bottom: 1rem;
   height: 20rem;
-  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 0.25rem;
   background-color: #fff;
   cursor: pointer;
+}
+
+#card:hover {
+  translate: 0 -0.5rem;
 }
 
 #thumbnail {
@@ -680,6 +690,12 @@ textarea {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  #name {
+    -webkit-line-clamp: 2;
+  }
+}
+
 .aside_active {
   width: 100%;
   height: auto;
@@ -723,10 +739,14 @@ h1 {
   align-items: center;
   margin-bottom: 1rem;
   height: 20rem;
-  border: 1px solid black;
   padding: 0.25rem;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#home-card:hover {
+  translate: 0 -0.5rem;
 }
 
 #home-card-img {
@@ -950,15 +970,25 @@ textarea {
 }
 
 /* men */
-#container > a {
+.avatar {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1 1;
 }
 
+.avatar img:hover {
+  translate: 0 -1rem;
+}
+
 @media only screen and (max-width: 768px) {
-  #container > a {
+  .avatar {
     margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #name {
+    -webkit-line-clamp: 2;
   }
 }

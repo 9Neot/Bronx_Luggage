@@ -55,6 +55,7 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
 
   $scope.backToTop = backToTop;
   $scope.width = document.body.offsetWidth;
+  $scope.placeholder = "Enter product name";
   if ($scope.width > 1200) {
     $scope.pageSize = 20;
   } else if ($scope.width > 768) {
@@ -63,6 +64,7 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
     $scope.pageSize = 12;
   } else {
     $scope.pageSize = 10;
+    $scope.placeholder = "Search name";
   }
   $scope.changePage = changePage;
   $scope.currentPage = 0;
@@ -134,6 +136,7 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
   $scope.slide = slide;
   $scope.disappearAside = disappearAside;
   $scope.displayAside = displayAside;
+  $scope.setInputSize = setInputSize;
 
   getData(paths);
 
@@ -144,9 +147,6 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
 
         const brand = [];
         const color = [];
-
-        if (item === "bags") {
-        }
 
         $scope[item].forEach((i) => {
           brand.push(i.brand);
@@ -431,6 +431,11 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
   function backToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+  }
+
+  function setInputSize() {
+    const input = document.querySelector("#search");
+    input.setAttribute("size", input.getAttribute("placeholder").length);
   }
 
   function slide() {

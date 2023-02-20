@@ -194,9 +194,10 @@
           type="text"
           name="search"
           id="search"
-          placeholder="Enter product name"
+          placeholder="{{placeholder}}"
           ng-model="search"
         />
+        {{setInputSize()}}
         <div class="dropdown">
           <button
             class="btn btn-secondary dropdown-toggle"
@@ -215,29 +216,29 @@
             <li>
               <a
                 class="dropdown-item"
-                ng-click="sort('price.current_price', true, 'Price: High-Low')"
-                >Price: High-Low</a
+                ng-click="sort('price.current_price', true, 'Price: ↑')"
+                >Price: ↑</a
               >
             </li>
             <li>
               <a
                 class="dropdown-item"
-                ng-click="sort('price.current_price', false, 'Price: Low-High')"
-                >Price: Low-High</a
+                ng-click="sort('price.current_price', false, 'Price: ↓')"
+                >Price: ↓</a
               >
             </li>
             <li>
               <a
                 class="dropdown-item"
-                ng-click="sort('reviews.rating', true, 'Rating: High-Low')"
-                >Rating: High-Low</a
+                ng-click="sort('reviews.rating', true, 'Rating: ↑')"
+                >Rating: ↑</a
               >
             </li>
             <li>
               <a
                 class="dropdown-item"
-                ng-click="sort('reviews.rating', false, 'Rating: Low-High')"
-                >Rating: Low-High</a
+                ng-click="sort('reviews.rating', false, 'Rating: ↓')"
+                >Rating: ↓</a
               >
             </li>
           </ul>
