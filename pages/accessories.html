@@ -192,34 +192,40 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Sort By: Default
+            Sort By: {{title}}
           </button>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item" ng-click="sort('', false)">Default</a>
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                ng-click="sort('price.current_price', true)"
-                >Price: High-Low</a
+              <a class="dropdown-item" ng-click="sort('', false, 'Default')"
+                >Default</a
               >
             </li>
             <li>
               <a
                 class="dropdown-item"
-                ng-click="sort('price.current_price', false)"
-                >Price: Low-High</a
+                ng-click="sort('price.current_price', true, 'Price: ↑')"
+                >Price: ↑</a
               >
             </li>
             <li>
-              <a class="dropdown-item" ng-click="sort('reviews.rating', true)"
-                >Rating: High-Low</a
+              <a
+                class="dropdown-item"
+                ng-click="sort('price.current_price', false, 'Price: ↓')"
+                >Price: ↓</a
               >
             </li>
             <li>
-              <a class="dropdown-item" ng-click="sort('reviews.rating', false)"
-                >Rating: Low-High</a
+              <a
+                class="dropdown-item"
+                ng-click="sort('reviews.rating', true, 'Rating: ↑')"
+                >Rating: ↑</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                ng-click="sort('reviews.rating', false, 'Rating: ↓')"
+                >Rating: ↓</a
               >
             </li>
           </ul>
