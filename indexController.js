@@ -65,7 +65,7 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
     $scope.pageSize = 12;
   } else {
     $scope.pageSize = 10;
-    $scope.placeholder = "Search name";
+    $scope.searchPlaceholder = "Search name";
     $scope.namePlaceholder = "Enter your name";
   }
   $scope.changePage = changePage;
