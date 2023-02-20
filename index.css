@@ -544,7 +544,6 @@ form {
 
 #nameInput {
   padding: 0.5rem;
-  width: 15rem;
 }
 
 #nameInput:invalid {
@@ -929,7 +928,6 @@ h1 {
 
 #nameInput {
   padding: 0.5rem;
-  width: 15rem;
 }
 
 textarea {

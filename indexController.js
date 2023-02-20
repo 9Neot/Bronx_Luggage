@@ -438,6 +438,7 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
   function setInputSize(id) {
     const input = document.querySelector(id);
     input.setAttribute("size", input.getAttribute("placeholder").length);
+    console.log(input);
   }
 
   function slide() {
