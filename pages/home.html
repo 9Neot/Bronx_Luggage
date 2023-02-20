@@ -307,26 +307,41 @@
 
           <div class="modal-footer">
             <h5 class="title">Rate and Send Feedback</h5>
-            <input
-              type="text"
-              id="nameInput"
-              placeholder="Enter your name (mandatory)"
-            />
-            <div class="star-wrapper">
-              <i class="fas fa-star s1" ng-click="rate(5, $event)"></i>
-              <i class="fas fa-star s2" ng-click="rate(4, $event)"></i>
-              <i class="fas fa-star s3" ng-click="rate(3, $event)"></i>
-              <i class="fas fa-star s4" ng-click="rate(2, $event)"></i>
-              <i class="fas fa-star s5" ng-click="rate(1, $event)"></i>
-            </div>
-            <textarea
-              name="feedback"
-              id="feedback"
-              placeholder="Enter feedback (optinal)"
-            ></textarea>
-            <button class="btn btn-primary" ng-click="sendFeedback()">
-              Send
-            </button>
+            <form novalidate>
+              <div id="first">
+                <div id="second">
+                  <input
+                    type="text"
+                    id="nameInput"
+                    placeholder="{{namePlaceholder}}"
+                    ng-change="inputChange()"
+                    ng-model="nameInput"
+                    required
+                  />
+                  {{setInputSize("#nameInput")}}
+                  <span class="error" aria-live="polite"></span>
+                </div>
+                <div class="star-wrapper">
+                  <i class="fas fa-star s1" ng-click="rate(5, $event)"></i>
+                  <i class="fas fa-star s2" ng-click="rate(4, $event)"></i>
+                  <i class="fas fa-star s3" ng-click="rate(3, $event)"></i>
+                  <i class="fas fa-star s4" ng-click="rate(2, $event)"></i>
+                  <i class="fas fa-star s5" ng-click="rate(1, $event)"></i>
+                </div>
+              </div>
+              <textarea
+                name="feedback"
+                id="feedback"
+                placeholder="Enter feedback (optinal)"
+              ></textarea>
+              <button
+                class="btn btn-primary"
+                id="submit"
+                ng-click="sendFeedback()"
+              >
+                Send
+              </button>
+            </form>
           </div>
         </div>
       </div>

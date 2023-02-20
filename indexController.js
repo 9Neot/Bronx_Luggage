@@ -55,7 +55,8 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
 
   $scope.backToTop = backToTop;
   $scope.width = document.body.offsetWidth;
-  $scope.placeholder = "Enter product name";
+  $scope.searchPlaceholder = "Enter product name";
+  $scope.namePlaceholder = "Enter your name (mandatory)";
   if ($scope.width > 1200) {
     $scope.pageSize = 20;
   } else if ($scope.width > 768) {
@@ -65,6 +66,7 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
   } else {
     $scope.pageSize = 10;
     $scope.placeholder = "Search name";
+    $scope.namePlaceholder = "Enter your name";
   }
   $scope.changePage = changePage;
   $scope.currentPage = 0;
@@ -433,8 +435,8 @@ app.controller("myCtrl", function ($scope, $http, $location, $window) {
     document.documentElement.scrollTop = 0;
   }
 
-  function setInputSize() {
-    const input = document.querySelector("#search");
+  function setInputSize(id) {
+    const input = document.querySelector(id);
     input.setAttribute("size", input.getAttribute("placeholder").length);
   }
 

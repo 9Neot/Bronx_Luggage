@@ -241,10 +241,10 @@
           type="text"
           name="search"
           id="search"
-          placeholder="{{placeholder}}"
+          placeholder="{{searchPlaceholder}}"
           ng-model="search"
         />
-        {{setInputSize()}}
+        {{setInputSize("#search")}}
         <div class="dropdown">
           <button
             class="btn btn-secondary dropdown-toggle"
@@ -488,11 +488,12 @@
                   <input
                     type="text"
                     id="nameInput"
-                    placeholder="Enter your name (mandatory)"
+                    placeholder="{{namePlaceholder}}"
                     ng-change="inputChange()"
                     ng-model="nameInput"
                     required
                   />
+                  {{setInputSize("#nameInput")}}
                   <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="star-wrapper">
