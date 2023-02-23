@@ -6,5 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <style>
+    #container {
+      flex-direction: column;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    #information {
+      display: flex;
+      flex-direction: column;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      align-items: center;
+    }
+    .column img {
+      height: 64px;
+      width: 64px;
+      margin-bottom: 0.5rem;
+    }
+    iframe {
+      width: 100%;
+    }
+    @media only screen and (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
+      .column {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+  <body>
+    <h1>Contact Us</h1>
+    <div id="information">
+      <div class="row">
+        <div class="column">
+          <img src="img\avatar\phone.png" alt="" /> <span>+84 0922891198</span>
+        </div>
+
+        <div class="column">
+          <img src="img\avatar\mail.png" alt="" />
+          <a href="mailto:mail@info.com">mail@info.com</a>
+        </div>
+        <div class="column">
+          <img src="img\avatar\location.png" alt="" />
+          <span
+            >391A Đ. Nam Kỳ Khởi Nghĩa, Phường 14, Quận 3, Thành phố Hồ Chí Minh
+            700000, Việt Nam</span
+          >
+        </div>
+      </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.266259382027!2d106.6802369145892!3d10.790907692311759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528d4a7c59c09%3A0x8e2f7cbc924be1db!2zMzkxYSDEkC4gTmFtIEvhu7MgS2jhu59pIE5naMSpYSwgUGjGsOG7nW5nIDE0LCBRdeG6rW4gMywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1677137766791!5m2!1sen!2s"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </body>
 </html>

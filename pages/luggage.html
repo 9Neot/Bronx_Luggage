@@ -291,7 +291,7 @@
         </div>
       </div>
       <ul class="pagination" ng-if="calcNumberOfPages()>1">
-        {{changePage(currentPage)}}
+        <!-- {{changePage(currentPage)}} -->
         <li class="page-item">
           <button
             class="page-link"
@@ -305,7 +305,11 @@
           class="page-item"
           ng-repeat="x in [].constructor(calcNumberOfPages()) track by $index"
         >
-          <button class="page-link" ng-click="changePage($index)">
+          <button
+            class="page-link"
+            ng-class="{active:$first}"
+            ng-click="changePage($index)"
+          >
             {{$index + 1}}
           </button>
         </li>
