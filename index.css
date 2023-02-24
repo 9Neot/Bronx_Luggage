@@ -599,10 +599,23 @@ textarea {
   margin-bottom: 1rem;
 }
 
-/* #current {
-  color: #0d6efd;
-} */
+#dateTime {
+  width: 30vw;
+}
+#map-link {
+  width: 70vw;
+}
+#dateTime,
+#map-link {
+  font-size: 2rem;
+}
+
 @media only screen and (max-width: 1200px) {
+  #dateTime,
+  #map-link {
+    font-size: 1rem;
+  }
+
   aside {
     position: absolute;
     width: 0;
@@ -1015,9 +1028,4 @@ textarea {
 
 .ticker1:hover .ticker_list1 {
   animation-play-state: paused;
-}
-#dateTime,
-#status,
-#map-link {
-  font-size: 2rem;
 }
