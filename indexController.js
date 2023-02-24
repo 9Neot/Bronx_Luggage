@@ -48,7 +48,7 @@ app.controller(
   "myCtrl",
   function ($scope, $http, $location, $window, $interval) {
     geoFindMe();
-    // $scope.dateTime = "";
+
     $interval(() => {
       const newdateTime = new Date();
       $scope.dateTime = newdateTime.toLocaleString();

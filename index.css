@@ -312,6 +312,7 @@ aside::-webkit-scrollbar-thumb {
 
 #search {
   height: 2rem;
+  padding: 0 0.5rem;
 }
 
 #search::placeholder {
@@ -1011,6 +1012,7 @@ textarea {
 }
 
 .ticker1 {
+  margin-top: 1rem;
   display: flex;
   overflow-x: hidden;
 }
@@ -1022,6 +1024,8 @@ textarea {
 }
 
 .ticker_item1 {
+  display: flex;
+  justify-content: center;
   margin-right: 20px;
   width: 50vw;
 }
