@@ -47,7 +47,8 @@ app.config(($routeProvider) => {
 app.controller(
   "myCtrl",
   function ($scope, $http, $location, $window, $interval) {
-    $scope.dateTime = "";
+    geoFindMe();
+    // $scope.dateTime = "";
     $interval(() => {
       const newdateTime = new Date();
       $scope.dateTime = newdateTime.toLocaleString();
@@ -445,12 +446,40 @@ app.controller(
       input.setAttribute("size", input.getAttribute("placeholder").length);
     }
 
-    function slide() {
-      const ticker = document.querySelector(".ticker");
-      const list = document.querySelector(".ticker_list");
+    function slide(id) {
+      if (!id) {
+        id = "";
+      }
+      const ticker = document.querySelector(`.ticker${id}`);
+      const list = document.querySelector(`.ticker_list${id}`);
       const clone = list.cloneNode(true);
 
       ticker.append(clone);
+    }
+
+    function geoFindMe() {
+      const mapLink = document.querySelector("#map-link");
+
+      mapLink.href = "";
+      $scope.mapLink = "";
+
+      function success(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        mapLink.href = `https://www.google.com/maps/place/${latitude},${longitude}/@${latitude},${longitude}z/data=!3m1!4b1!4m4!3m3!8m2!3d41.403389!4d2.174028;`;
+        $scope.mapLink = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+      }
+
+      function error() {
+        $scope.mapLink = "Unable to retrieve your location";
+      }
+
+      if (!navigator.geolocation) {
+        $scope.mapLink = "Geolocation is not supported by your browser";
+      } else {
+        navigator.geolocation.getCurrentPosition(success, error);
+      }
     }
   }
 );

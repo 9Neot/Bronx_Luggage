@@ -149,7 +149,13 @@
       <section>
         <div id="container" ng-view></div>
       </section>
-      <footer>{{dateTime}}</footer>
+      <footer class="ticker1">
+        <div class="ticker_list1">
+          <div id="dateTime" class="ticker_item1">{{dateTime}}</div>
+          <a id="map-link" class="ticker_item1" target="_blank">{{mapLink}}</a>
+        </div>
+      </footer>
+      <!-- {{slide("1")}} -->
       <div id="count">Visiter Count: {{count}}</div>
       <button
         type="button"

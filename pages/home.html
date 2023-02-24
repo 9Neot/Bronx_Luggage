@@ -97,12 +97,15 @@
       <h1>Brand</h1>
 
       <div class="ticker">
-        <div ng-repeat="(key, value) in brands" class="ticker_list">
-          <div ng-repeat="i in value | myFormat" class="ticker_item">
-            <img ng-src="{{i.logo}}" alt="" />
+        <div class="ticker_list">
+          <div ng-repeat="(key, value) in brands" class="subticker_list">
+            <div ng-repeat="i in value | myFormat" class="ticker_item">
+              <img ng-src="{{i.logo}}" alt="" />
+            </div>
           </div>
         </div>
       </div>
+      {{slide()}}
     </div>
     <div class="row">
       <h1>Best Seller</h1>

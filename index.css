@@ -131,6 +131,11 @@ a {
   align-items: center;
 }
 
+.ticker_list .subticker_list {
+  display: flex;
+  align-items: center;
+}
+
 .ticker:hover .ticker_list {
   animation-play-state: paused;
 }
@@ -990,4 +995,29 @@ textarea {
   #name {
     -webkit-line-clamp: 2;
   }
+}
+
+.ticker1 {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.ticker_list1 {
+  display: flex;
+  align-items: center;
+  /* animation: ticker 10s infinite linear; */
+}
+
+.ticker_item1 {
+  margin-right: 20px;
+  width: 50vw;
+}
+
+.ticker1:hover .ticker_list1 {
+  animation-play-state: paused;
+}
+#dateTime,
+#status,
+#map-link {
+  font-size: 2rem;
 }
